@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:gravity="center_horizontal"
+    android:layout_height="fill_parent" android:layout_width="fill_parent">
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:background="#336699"
+        android:id="@+id/cabecalho" android:orientation="horizontal"
+        android:padding="10dip">
+        <TextView android:textColor="#FFFFFF" android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" android:layout_width="fill_parent"
+            android:gravity="center_horizontal" android:id="@+id/lblCabecalho" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logoprincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/globogrande" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:background="#000000"
+            android:layout_height="wrap_content"
+            android:id="@+id/rodape"
+            android:padding="5dip">
+
+            <Button android:id="@+id/btnNoticias"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:drawableTop="@drawable/noticias"
+                android:background="#000000"
+                android:textColor="#FFFFFF"
+                android:paddingRight="10sp"
+                android:paddingLeft="10sp"
+                android:text="Notícias"
+                />
+
+            <Button android:id="@+id/btnAnteriores"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:drawableTop="@drawable/anterior"
+                android:background="#000000"
+                android:textColor="#FFFFFF"
+                android:paddingRight="10sp"
+                android:text="Jogos Anteriores"
+                />
+
+            <Button android:id="@+id/btnProximos"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:drawableTop="@drawable/proximo"
+                android:background="#000000"
+                android:textColor="#FFFFFF"
+                android:paddingRight="10sp"
+                android:text="Próximos Jogos"
+                />
+
+            <Button android:id="@+id/btnTabela"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="10sp"
+                android:drawableTop="@drawable/brasil"
+                android:background="#000000"
+                android:textColor="#FFFFFF"
+                android:text="Tabela Brasileirão"
+                />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</RelativeLayout>
+
+
