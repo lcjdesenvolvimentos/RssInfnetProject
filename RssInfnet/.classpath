@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="build/source/r/debug"/>
+	<classpathentry kind="src" path="build/source/aidl/debug"/>
+	<classpathentry kind="src" path="build/source/rs/debug"/>
+	<classpathentry kind="src" path="build/source/buildConfig/debug"/>
+	<classpathentry kind="src" path="build/res/rs/debug"/>
+	<classpathentry kind="src" path="build/source/r/test"/>
+	<classpathentry kind="src" path="build/source/aidl/test"/>
+	<classpathentry kind="src" path="build/source/rs/test"/>
+	<classpathentry kind="src" path="build/source/buildConfig/test"/>
+	<classpathentry kind="src" path="build/res/rs/test"/>
+	<classpathentry kind="src" path="src/debug/aidl"/>
+	<classpathentry kind="src" path="src/debug/assets"/>
+	<classpathentry kind="src" path="src/debug/java"/>
+	<classpathentry kind="src" path="src/debug/jni"/>
+	<classpathentry kind="src" path="src/debug/rs"/>
+	<classpathentry kind="src" path="src/debug/res"/>
+	<classpathentry kind="src" path="src/debug/resources"/>
+	<classpathentry kind="src" path="src/main/aidl"/>
+	<classpathentry kind="src" path="src/main/assets"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/jni"/>
+	<classpathentry kind="src" path="src/main/rs"/>
+	<classpathentry kind="src" path="src/main/res"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/instrumentTest/aidl"/>
+	<classpathentry kind="src" path="src/instrumentTest/assets"/>
+	<classpathentry kind="src" path="src/instrumentTest/java"/>
+	<classpathentry kind="src" path="src/instrumentTest/jni"/>
+	<classpathentry kind="src" path="src/instrumentTest/rs"/>
+	<classpathentry kind="src" path="src/instrumentTest/res"/>
+	<classpathentry kind="src" path="src/instrumentTest/resources"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/support-v4-19.0.0"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/ComAndroidSupportAppcompatV71900.aar"/>
+	<classpathentry kind="output" path="build/classes/debug"/>
+</classpath>

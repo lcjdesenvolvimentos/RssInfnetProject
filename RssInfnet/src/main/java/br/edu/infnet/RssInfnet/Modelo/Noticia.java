@@ -1,5 +1,7 @@
 package br.edu.infnet.RssInfnet.Modelo;
 
+import android.widget.ImageView;
+
 /**
  * Created by Luís on 18/11/13.
  */
@@ -7,7 +9,7 @@ public class Noticia {
     private String titulo;
     private String descricao;
     private String link;
-    private int img;
+    private ImageView img;
 
     public String getTitulo() {
         return titulo;
@@ -33,11 +35,11 @@ public class Noticia {
         this.link = link;
     }
 
-    public int getImg() {
+    public ImageView getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(ImageView img) {
         this.img = img;
     }
 

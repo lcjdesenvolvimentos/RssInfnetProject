@@ -18,8 +18,8 @@ public class Canal {
     public int getLogo() {
         return logo;
     }
-    public void setLogo(int escudo) {
-        this.logo = escudo;
+    public void setLogo(int imagem) {
+        this.logo = imagem;
     }
 
     public static String feeds[] =

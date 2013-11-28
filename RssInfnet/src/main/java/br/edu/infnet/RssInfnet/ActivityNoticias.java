@@ -1,7 +1,12 @@
 package br.edu.infnet.RssInfnet;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +21,15 @@ import org.w3c.dom.NodeList;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import br.edu.infnet.RssInfnet.Modelo.Canal;
@@ -41,13 +52,12 @@ public class ActivityNoticias extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        noticiaList = null;
         //NOTICIAS
         noticiaList = new ArrayList<Noticia>();
 
         i = getIntent();
         nFeedEscolhido = i.getIntExtra("FeedSelecionado",0);
-
-
 
         if (Canal.feeds[nFeedEscolhido].equals(Canal.feeds[0])){
             sLinkRSS = "http://g1.globo.com/dynamo/rss2.xml"; // Todas as Noticias
@@ -85,7 +95,7 @@ public class ActivityNoticias extends ListActivity {
 
         if (sLinkRSS.equals("")){
             Toast.makeText( this, "O feed selecionado não possui RSS", 1000 ).show();
-            Intent i = new Intent(this, ActivityPrincipal.class);
+            Intent i = new Intent(this, ActivityCanais.class);
             startActivity(i);
         }else{
             // Criando AsyncTask que buscará o RSS da globo.com
@@ -118,7 +128,7 @@ public class ActivityNoticias extends ListActivity {
 
             // Vamos iterar sobre a lista de itens
             String titulo = null, descricao = null,
-                    link = null;
+                    link = null, imageLink = null;
 
             for (int i = 0; i < posts.getLength(); i++) {
                 Node post = posts.item(i);
@@ -139,15 +149,40 @@ public class ActivityNoticias extends ListActivity {
                     } else if ("description".equals(
                             info.getNodeName())){
                         descricao = info.getTextContent();
+
+                        if (descricao.toLowerCase().contains("<img"))
+                        {
+                            String[] palavras = descricao.split("'");
+                            imageLink = "";
+                            for(String elemento: palavras){
+
+                                if (elemento.toLowerCase().contains(".jpg"))
+                                {
+                                    imageLink = elemento;
+                                }
+                            }
+
+                        }
                     }
+
+
+
                 }
                 // Com as informações das tags, cria o
                 // objeto notícia e adiciona na lista
+                ImageView imagem = (ImageView) findViewById(R.id.img);
+
+                if (!TextUtils.isEmpty((imageLink)))
+                {
+//                    Bitmap figura = DownloadImageTask((ImageView) findViewById(R.id.img)).execute(imageLink).get();
+//                    imagem.setImageBitmap(figura);
+                }
+
                 Noticia noticia = new Noticia();
                 noticia.setDescricao(descricao);
                 noticia.setLink(link);
                 noticia.setTitulo(titulo);
-                noticia.setImg(Canal.images[nFeedEscolhido]);
+                noticia.setImg(imagem);
                 noticiaList.add(noticia);
 
             }
@@ -156,6 +191,8 @@ public class ActivityNoticias extends ListActivity {
         }
         return noticiaList;
     }
+
+
 
     // A AsyncTask realiza a comunicação em background
     class RssAsyncTask extends
@@ -206,6 +243,34 @@ public class ActivityNoticias extends ListActivity {
             super.onPostExecute(result);
             dialog.dismiss();
             ActivityNoticias.this.setListAdapter(new NoticiaAdapter(ActivityNoticias.this, noticiaList));
+        }
+
+
+
+    }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("ErroNessaBosta", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
         }
     }
 

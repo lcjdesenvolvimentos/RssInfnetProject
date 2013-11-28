@@ -56,8 +56,8 @@ public class CanalAdapter extends BaseAdapter {
         textTime.setText(canal.getNome());
 
         // Logo
-        ImageView img = (ImageView)view.findViewById(R.id.imgLogo);
-        img.setImageResource(canal.getLogo());
+//        ImageView img = (ImageView)view.findViewById(R.id.imgLogo);
+//        img.setImageResource(canal.getLogo());
 
         return view;
     }

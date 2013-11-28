@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="ComAndroidSupportAppcompatV71900.aar">
+    <archive path="C:/Users/Luís/Documents/GitHub/RssInfnetProject/RssInfnet/build/exploded-bundles/ComAndroidSupportAppcompatV71900.aar/classes.jar" />
+  </library>
+  <library name="support-v4-19.0.0" />
+</eclipse-userlibraries>
+

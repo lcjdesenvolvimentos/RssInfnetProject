@@ -34,13 +34,14 @@ public class ActivityCanais extends ListActivity {
 
             canalList.add(canal);
         }
+        this.getListView().setDividerHeight(0);
         this.setListAdapter(new CanalAdapter(this, canalList));
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent i = new Intent(ActivityCanais.this, ActivityPrincipal.class);
-        i.putExtra("CanalSelecionado", position);
+        Intent i = new Intent(ActivityCanais.this, ActivityNoticias.class);
+        i.putExtra("FeedSelecionado", i.getIntExtra("FeedSelecionado",position));
         startActivity(i);
 
 
